@@ -64,5 +64,5 @@ Machine Learning and  Materials Science Research Intern @IIT Guwahati
 ## Live Demo 
 
 Click here to try the app live
-(replace this link after deploying on Render or Streamlit Cloud)
+https://perovskite-solar-cell-predictor-wgxqfqjxkislntydctmruj.streamlit.app/
 
