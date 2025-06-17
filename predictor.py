@@ -20,7 +20,7 @@ st.markdown("""
             color: #fffd80;
         }
         h1, h2, h3, h4 {
-            color: #fffd80 !important;
+            color: #4682B4 !important;
         }
         .stButton>button {
             background-color: #2980B9;
