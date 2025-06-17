@@ -1,57 +1,7 @@
-
-
-
-
-
-
-
-Name: numpy
-Version: 1.26.4
-Summary: Fundamental package for array computing in Python
-Home-page: https://numpy.org
-Author: Travis E. Oliphant et al.
-Author-email: 
-License: Copyright (c) 2005-2023, NumPy Developers.
-All rights reserved.
-
-
----
-Name: pandas
-Version: 2.2.2
-Summary: Powerful data structures for data analysis, time series, and statistics
-Home-page: https://pandas.pydata.org
-Author: 
-Author-email: The Pandas Development Team <pandas-dev@python.org>
-License: BSD 3-Clause License
-
-
-
-
-
-
----
-Name: scikit-learn
-Version: 1.5.1
-Summary: A set of python modules for machine learning and data mining
-Home-page: https://scikit-learn.org
-Author: 
-Author-email: 
-License: new BSD
-Location: C:\Users\VICTUS\anaconda3\Lib\site-packages
-Requires: joblib, numpy, scipy, threadpoolctl
-Required-by: imbalanced-learn
----
-Name: streamlit
-Version: 1.37.1
-Summary: A faster way to build and share data apps
-Home-page: https://streamlit.io
-Author: Snowflake Inc
-Author-email: hello@streamlit.io
-License: Apache License 2.0
-Location: C:\Users\VICTUS\anaconda3\Lib\site-packages
-Requires: altair, blinker, cachetools, click, gitpython, numpy, packaging, pandas, pillow, protobuf, pyarrow, pydeck, requests, rich, tenacity, toml, tornado, typing-extensions, watchdog
-
- 
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.5.1
+streamlit==1.37.1
 
 
 
