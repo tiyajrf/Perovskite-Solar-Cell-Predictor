@@ -1,4 +1,4 @@
-pip freeze
+
 aext-assistant @ file:///C:/b/abs_1bfn_ondsd/croot/aext-assistant_1746560154452/work
 aext-assistant-server @ file:///C:/b/abs_6f6umrladb/croot/aext-assistant-server_1746552992573/work
 aext-core @ file:///C:/b/abs_a0497039ax/croot/aext-core_1746546102863/work
@@ -386,4 +386,4 @@ zict @ file:///C:/Users/dev-admin/perseverance-python-buildout/croot/zict_169954
 zipp @ file:///C:/Users/dev-admin/perseverance-python-buildout/croot/zipp_1707493775475/work
 zope.interface @ file:///C:/Users/dev-admin/perseverance-python-buildout/croot/zope.interface_1699497164709/work
 zstandard @ file:///C:/b/abs_82dff2ths3/croot/zstandard_1728569207191/work
-Note: you may need to restart the kernel to use updated packages.
+
