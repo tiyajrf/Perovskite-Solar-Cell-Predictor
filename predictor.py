@@ -7,7 +7,7 @@ import pandas as pd
 with open("efficiency_model_improved.pkl", "rb") as f:
     efficiency_model = pickle.load(f)
 
-with open("stability_material_rf_improved.pkl", "rb") as f:
+with open("stability_material_rf_enhanced.pkl", "rb") as f:
     stability_model = pickle.load(f)
 
 st.set_page_config(page_title="Perovskite Predictor", layout="wide")
@@ -16,11 +16,11 @@ st.set_page_config(page_title="Perovskite Predictor", layout="wide")
 st.markdown("""
     <style>
         body {
-            background-color: #000;
+            background-color: #F4F6F7;
             color: #fffd80;
         }
         h1, h2, h3, h4 {
-            color: #4682B4 !important;
+            color: #fffd80 !important;
         }
         .stButton>button {
             background-color: #2980B9;
@@ -49,27 +49,46 @@ st.markdown("### 🧪 Stability Predictor")
 # Layout for inputs
 col1, col2 = st.columns(2)
 with col1:
-    a_ion = st.selectbox("A-site ion", ["FA", "MA", "Cs", "Rb"])
+    a_ion = st.selectbox("A-site ion", ["FA", "MA", "Cs"])
     c_ion = st.selectbox("C-site ion", ["I", "Br", "Cl"])
     humidity = st.number_input("Synthesis Relative Humidity (%)", min_value=0.0, max_value=100.0, format="%.2f")
+    encapsulation = st.selectbox("Encapsulation", ["Yes", "No"])
+    temp_stab = st.number_input("Temperature Stability (°C)", min_value=0.0, format="%.1f")
+    defect_density = st.number_input("Defect Density (/cm³)", min_value=1e15, max_value=1e18, format="%.2e")
 with col2:
     b_ion = st.selectbox("B-site ion", ["Pb", "Sn", "Ge"])
-    bandgap = st.number_input("Bandgap (eV)", min_value=0.0, format="%.3f")
+    a_bandgap = st.number_input("A-site Bandgap (eV)", min_value=0.0, format="%.2f")
+    b_bandgap = st.number_input("B-site Bandgap (eV)", min_value=0.0, format="%.2f")
+    c_bandgap = st.number_input("C-site Bandgap (eV)", min_value=0.0, format="%.2f")
+    a_radius = st.number_input("A-site Ionic Radius (Å)", min_value=0.0, format="%.2f")
+    b_radius = st.number_input("B-site Ionic Radius (Å)", min_value=0.0, format="%.2f")
+    c_radius = st.number_input("C-site Ionic Radius (Å)", min_value=0.0, format="%.2f")
+    a_affinity = st.number_input("A-site Electron Affinity (eV)", min_value=0.0, format="%.2f")
+    b_affinity = st.number_input("B-site Electron Affinity (eV)", min_value=0.0, format="%.2f")
+    c_affinity = st.number_input("C-site Electron Affinity (eV)", min_value=0.0, format="%.2f")
 
 if st.button("Predict Stability"):
     input_df = pd.DataFrame({
         "A_site_material": [a_ion],
         "B_site_material": [b_ion],
         "C_site_material": [c_ion],
-        "Perovskite_deposition_synthesis_atmosphere_relative_humidity": [humidity],
-        "Perovskite_band_gap": [bandgap]
+        "Humidity": [humidity],
+        "Defect_density": [defect_density],
+        "Encapsulation": [encapsulation],
+        "Temperature_stability": [temp_stab],
+        "A_radius": [a_radius],
+        "B_radius": [b_radius],
+        "C_radius": [c_radius],
+        "A_electron_affinity": [a_affinity],
+        "B_electron_affinity": [b_affinity],
+        "C_electron_affinity": [c_affinity],
+        "A_bandgap": [a_bandgap],
+        "B_bandgap": [b_bandgap],
+        "C_bandgap": [c_bandgap],
     })
 
-    # ✅ Corrected interaction feature name
-    input_df["Bandgap_Humidity_Interaction"] = input_df["Perovskite_band_gap"] * input_df["Perovskite_deposition_synthesis_atmosphere_relative_humidity"]
-
     prediction = stability_model.predict(input_df)
-    st.success(f"Predicted Stability Score: {prediction[0]:.2f}")
+    st.success(f"Predicted Stability: {prediction[0]:.1f} days")
 
 # ------------------ Efficiency Predictor ------------------
 st.markdown("---")
@@ -112,3 +131,4 @@ if st.button("Predict Efficiency"):
 
     prediction = efficiency_model.predict(input_df)[0]
     st.success(f"Predicted Efficiency: {prediction:.2f} %")
+    
