@@ -16,7 +16,7 @@ st.set_page_config(page_title="Perovskite Predictor", layout="wide")
 st.markdown("""
     <style>
         body {
-            background-color: #F4F6F7;
+            background-color: #007ACC;
             color: #007ACC;
         }
         h1, h2, h3, h4 {
