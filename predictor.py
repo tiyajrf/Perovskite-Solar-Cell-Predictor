@@ -17,7 +17,7 @@ st.markdown("""
     <style>
         body {
             background-color: #F4F6F7;
-            color: #fffd80;
+            color: #007ACC;
         }
         h1, h2, h3, h4 {
             color: #fffd80 !important;
